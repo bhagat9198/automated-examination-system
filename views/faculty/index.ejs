@@ -1,0 +1,105 @@
+<%- include('../includes/faculty-nav.ejs') %>
+
+   <section class="container">
+   	  <h4>Faculty Dashboard</h4>
+   	<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">
+    Faculty Dashboard / Home</li>
+  </ol>
+</nav>
+   </section>
+
+   
+   	<br>
+   	<br>
+
+   <section class="container">
+   	     <div class="container">
+                      
+                        
+                        <div class="row">
+                            <div class="col-md-6 border">
+                                <h3>Scheduled Exams </h3>
+                                <table class="table table-bordered table-sm text-center">
+                                    <tr>
+                                    <th>Sl No</th>
+                                    <th>Date</th>
+                                    <th>Time Slot</th>
+                                    <th>Faculties Required</th>
+                                    <th>Action</th>
+                                    </tr>
+
+                                    <tr>
+                                    <td>1</td>
+                                    <td>03/03/2020</td>
+                                    <td>1. 9AM - 12PM</td>
+                                    <td>
+                                        <span class="badge badge-pill badge-primary">10</span></td><!-- // show no of requirement, if applied redce the count -->
+                                    <td>
+                                        <button class="btn btn-info">Apply</button>
+                                    </td>
+                                    </tr>
+                                     
+                                 </table>
+                                
+                                <br>
+                            </div>
+
+                            <div class="col-md-6 border">
+                                <h2>Generated Seat Plans</h2>
+                              <!--   <p>Display all the generated plans</p> -->
+                                <table class="table table-bordered table-sm text-center text-center">
+                                    <tr>
+                                        <th>Sl No</th>
+                                        <th>Date</th>
+                                        <th>Slot</th>
+                                        <th>Action</th>
+                                       
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>03/03/2020</td>
+                                        <td>9AM- 12PM</td>
+                                        
+                                        
+                                     <td>
+                               
+                            <button class="btn btn-info btn-sm">
+                         Download    <i class="fa fa-cloud-download"></i> 
+                            </button>
+                        
+                                        </td>
+                                    </tr>
+                                    
+                                </table> 
+                            </div>
+                        </div>
+                        <br><hr>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3>University Exam Schedules</h3>
+
+                                <table class="table table-bordered tale-striped table-hover table-sm">
+                                    <tr>
+                                        <th>Sl No</th>
+                                        <th>Title</th>
+                                        <th>Action</th>
+
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Finals For CSE</td>
+                                        <td>
+                                            <button class="btn btn-warning">Download  <i class="fa fa-cloud-download"></i> </button>
+                                        </td>
+                                    </tr>
+                                    
+                                </table>
+                            </div>
+                        </div>
+                        
+                    </div>
+   </section><br><br><br>
+
+   <%- include('../includes/footer.ejs') %>

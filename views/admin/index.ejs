@@ -1,0 +1,69 @@
+<%- include('../includes/admin-nav.ejs') %>
+
+   <section class="container">
+   	  <h4>Admin Dashboard</h4>
+   	<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">
+    Admin Dashboard / Home</li>
+  </ol>
+</nav>
+   </section>
+
+   <section class="container">
+   	<div class="row text-white text-center">
+   		<div class="col-md-3 col-6 bg-warning p-4">
+   			<h5>Registered Students</h5>
+   			<div class="row">
+   			<div class="col-md-6 text-right"><h3><span class="fa fa-graduation-cap"></span></h3></div>
+   			<div class="col-md-6 text-left"><h4>100</h4></div>
+   		</div>
+   		</div>
+   		<div class="col-md-3 col-6 bg-primary p-4">
+   			<h5>Registered Faculties</h5>
+   			<div class="row">
+   			<div class="col-md-6 text-right"><h3><span class="fa fa-book"></span></h3></div>
+   			<div class="col-md-6 text-left"><h4>100</h4></div>
+   		</div>
+   		</div>
+   		<div class="col-md-3 col-6 bg-danger p-4">
+   			<h5>Total Notice</h5>
+   			   <div class="row">
+   			   <div class="col-md-6 text-right"><h4><span class="fa fa-tv"></span></h4></div>
+   			   <div class="col-md-6 text-left"><h4>100</h4></div>
+   		   </div>
+   		</div>
+   		<div class="col-md-3 col-6 bg-info p-4">
+   			<h5>Total Exams</h5>
+   			<div class="row">
+   			<div class="col-md-6 text-right "><h4> <span class="fa fa-pencil-square-o"></span></h4></div>
+   			<div class="col-md-6 text-left "><h4>100</h4></div>
+   		</div>
+   		</div>
+   	</div>
+   </section>
+   	<br>
+   	<br>
+
+   <section class="container">
+   	  <div class="row text-center">
+   	  	<div class="col-md-4 ">
+   	  		<div class="card-add" id="c1">
+   	  		<h3><a href="add-student.html" >Add Student <span class="fa fa-plus-square"></span></a></h3>
+   	  	</div>
+   	  	</div>
+   	  		<div class="col-md-4 ">
+   	  		<div class="card-add" id="c2">
+   	  		<h3><a href="add-faculty.html" >Add Faculty <span class="fa fa-plus-square"></span></a></h3>
+   	  	</div>
+   	  	</div>
+   	  	<div class="col-md-4 ">
+   	  		<div class="card-add" id="c3">
+   	  		<h3><a href="add-exam.html" >Add Exam <span class="fa fa-plus-square"></span></a></h3>
+   	  	</div>
+   	  	</div>
+
+   	  </div> <!-- // row -->
+   	
+   </section><br><br><br>
+   <%- include('../includes/footer.ejs') %>

@@ -1,0 +1,197 @@
+<%- include('../includes/admin-nav.ejs') %>
+
+   <section class="container">
+   	 
+   	<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">
+    Admin Dashboard / View All Student</li>
+  </ol>
+</nav>
+   </section>
+
+    <section>
+         <div class="container">
+            
+                       
+                        <div class="card mb-4">
+                            <div class="card-header"><i class="fa fa-graduation-cap mr-1"></i>All Students</div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+
+                                                <th>Name</th>
+                                                <th>SEM</th>
+                                                <th>Branch</th>
+                                                <th>usn</th>
+                                                <th>Action</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                          
+                                                <th>Name</th>
+                                                <th>SEM</th>
+                                                <th>Branch</th>
+                                                <th>usn</th>
+                                                <th>Action</th>
+                                              
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr>
+                                                <td>Yuri Berry</td>
+                                                <td>2</td>
+                                                <td>cs</td>
+                                                <td>16TB125001</td>
+                                                <td>
+                                                     <button class="btn btn-danger btn-sm">
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-info" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-wrench"></i></button></td>
+                                                
+                                            </tr>
+                                            
+                                           
+                                            <tr>
+                                                <td>Cara Stevens</td>
+                                                <td>8</td>
+                                                <td>IS</td>
+                                                <td>17TB125002</td>
+                                                <td>
+                                                     <button class="btn btn-danger btn-sm">
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-info" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-wrench"></i></button></td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <td>Hermione Butler</td>
+                                                <td>6</td>
+                                                <td>ece</td>
+                                                <td>16TB125005</td>
+                                                <td> <button class="btn btn-danger btn-sm">
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-info" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-wrench"></i></button></td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <td>Lael Greer</td>
+                                                <td>4</td>
+                                                <td>EEE</td>
+                                                <td>16TB125004</td>
+                                                <td>
+                                                     <button class="btn btn-danger btn-sm">
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-info" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-wrench"></i></button></td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>Jonas Alexander</td>
+                                                <td>6</td>
+                                                <td>ECE</td>
+                                                <td>16TB125009</td>
+                                                <td>
+                                                     <button class="btn btn-danger btn-sm">
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-info" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-wrench"></i></button></td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>Shad Decker</td>
+                                                <td>8</td>
+                                                <td>CS</td>
+                                                <td>16TB125008</td>
+                                                <td> <button class="btn btn-danger btn-sm">
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-info" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-wrench"></i></button></td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <td>Michael Bruce</td>
+                                                <td>2</td>
+                                                <td>CSE</td>
+                                                <td>16TB1250012</td>
+                                                <td>
+                                                     <button class="btn btn-danger btn-sm">
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-info" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-wrench"></i></button></td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <td>Donna Snider</td>
+                                                <td>4</td>
+                                                <td>CSE</td>
+                                                <td>16TB1250013</td>
+                                                <td>
+                                                    <button class="btn btn-danger btn-sm">
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                                   <button class="btn btn-sm btn-info" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-wrench"></i></button>
+                                               </td>
+                                                
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                           <!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header text-left">
+        
+        <h4 class="modal-title text-left">Edit Student Details</h4>
+      </div>
+      <div class="modal-body">
+        
+        <label>Name:</label>
+        <input type="text" name="" placeholder="Please Enter Name" class="form-control">
+         <label>Email:</label>
+         <input type="email" name="" placeholder="Please Enter email" class="form-control">
+        <label>Sem:</label>
+        <select class="form-control">
+            <option value="2">2</option>
+             <option value="4">4</option>
+              <option value="6">6</option>
+               <option value="8">8</option>
+        </select>
+        <label>Branch:</label>
+        <select class="form-control">
+            <option value="ISE">ISE</option>
+             <option value="CSE">CSE</option>
+              <option value="ECE">ECE</option>
+               <option value="EEE">EEE</option>
+
+        </select>
+        <label>USN:</label>
+       <input class="form-control" type="text" name="" placeholder="Enter new USN">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+                    </div>
+    </section>
+
+
+
+
+   <br><br><br>
+
+   <%- include('../includes/footer.ejs') %>

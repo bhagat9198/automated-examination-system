@@ -1,0 +1,87 @@
+<%- include('../includes/admin-nav.ejs') %>
+
+   <section class="container">
+   	 
+   	<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">
+    Admin Dashboard / Clear Attendence Exams</li>
+  </ol>
+</nav>
+   </section>
+
+    <section>
+        <div class="container">
+                      
+                         <div class="row">
+                           
+                            <div class="col-md-6">
+                                <div class="border" style="padding:10px;">
+                                    <p>Add Attendence</p>
+                               <form>
+                                   <label>Choose Branch:</label>
+                                    <select class="form-control text-center" name="branch" >
+                                <option selected="" disabled="">-- Choose Branch --</option>
+                                <option value="CSE">CSE</option>
+                                <option value="ISE">ISE</option>
+                                <option value="ECE">ECE</option>
+                                <option value="EEE">EEE</option>
+                                        
+                                    </select>
+                                    <label>Choose Semester:</label>
+                                    <select class="form-control text-center" name="branch" >
+                                <option selected="" disabled="">-- Choose Semester --</option>
+                                <option value="2">2</option>
+                                <option value="4">4</option>
+                                <option value="6">6</option>
+                                <option value="8">8</option>
+                                        
+                                    </select>
+                                   <br>
+                                   <label>Upload File:</label>
+                                   <input type="file" name="file" class="form-control">
+                                   <br>
+                                   <input type="submit" name="" value="Add Now" class="btn btn-primary">
+
+
+                               </form>
+                               </div> <!-- // form order -->
+                            </div>
+                             <div class="col-md-6 border">
+                                <br>
+                                <h4>All Attendence</h4>
+                                <table class="table table-bordered table-striped">
+                                    <tr>
+                                        
+                                        <th>
+                                            BRANCH
+                                        </th>
+                                        <th>
+                                            SEM
+                                        </th>
+                                        <th>
+                                            Action
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>CSE</td>
+                                        <TD>2</TD>
+                                        <td>
+                                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    
+                                </table>
+                            </div>
+                             
+                         </div> <!-- // row -->
+                    </div>
+        
+    </section>
+
+
+
+
+   <br><br><br>
+
+   <%- include('../includes/footer.ejs') %>
