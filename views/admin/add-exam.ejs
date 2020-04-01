@@ -1,113 +1,88 @@
 <%- include('../includes/admin-nav.ejs') %>
 
-   <section class="container">
-   	 
-   	<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item active" aria-current="page">
-    Admin Dashboard / Add Exam</li>
-  </ol>
-</nav>
-   </section>
+<section class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">
+        Admin Dashboard / Add Exam
+      </li>
+    </ol>
+  </nav>
+</section>
 
-    <section>
-       <div class="container">
-                      
-                        <div class="row">
-                            <div class="col-md-6">
-                                <a href="generate-plans.html" class="btn btn-info">Generate Seat Plan</a>
-                            </div>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+          <a href="generate-plans.html" class="btn btn-info">Generate Seat Plan</a>
+      </div>
+      <div class="col-md-6">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-6 border">
+        <h3>Add a new Exam </h3>
+        <form>
+          <label>Exam Title</label>
+          <input type="text" name="" class="form-control" placeholder="Please enter title . Ex. Java Exam 6th Sem CS">
+          <label>Branch</label>
+          <select class="form-control text-center">
+            <option selected="" disabled="">-- Select Branch --</option>
+            <option value="ISE">ISE</option>
+            <option value="CSE">CSE</option>
+            <option value="EEE">EEE</option>
+            <option value="ECE">ECE</option>
+          </select>
+          <label>Choose Semester</label>
+          <select class="form-control text-center">
+            <option>-- Choose Semester --</option>
+            <option value="2">2</option>
+            <option value="4">4</option>
+            <option value="6">6</option>
+            <option value="8">8</option>
+          </select>
+          <label>Choose Date</label>
+          <input type="date" name="" class="form-control">
+          <label>Choose Time slot</label>
+          <select class="form-control text-center">
+            <option selected="" disabled="">-- Time Slot --</option>
+            <option value="1">1- 9:30AM - 12:30 PM</option>
+            <option value="1">2- 2:00PM - 05:00 PM</option>
+          </select>
+          <br>
+          <input type="submit" name="" value="Save Now" class="btn btn-primary">
+        </form>
+        <br>
+      </div>
+      <div class="col-md-6 border">
+        <h2>Scheduled Exams</h2>
+        <p>Display all the upcoming exam</p>
+        <table class="table table-bordered">
+          <tr>
+            <th>Sl No</th>
+            <th>Title of Exam</th>
+            <th>branch</th>
+            <th>sem</th>
+            <th>Timing Slot</th>
+            <th>Action</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Java 6th Sem</td>
+            <td>CSE</td>
+            <td>6</td>
+            <td>1. 9:30 AM to 12:30PM</td>
+            <td>
+              <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+            </td>
+          </tr>
+        </table> 
+      </div>
+    </div>
+  </div>
+</section>
 
-                            <div class="col-md-6">
-                            </div>
-                        </div>
-                        <br>
-                        
-                        <div class="row">
-                            <div class="col-md-6 border">
-                                <h3>Add a new Exam </h3>
-                                <form>
-                                    <label>Exam Title</label>
-                                    <input type="text" name="" class="form-control" placeholder="Please enter title . Ex. Java Exam 6th Sem CS">
-                                    <label>Branch</label>
-                                    <select class="form-control text-center">
-                                        <option selected="" disabled="">-- Select Branch --</option>
-                                        <option value="ISE">ISE</option>
-                                        <option value="CSE">CSE</option>
-                                        <option value="EEE">EEE</option>
-                                        <option value="ECE">ECE</option>
-                                        
-                                    </select>
-                                    <label>Choose Semester</label>
-                                    <select class="form-control text-center">
-                                        <option>-- Choose Semester --</option>
-                                        <option value="2">
-                                            2
-                                        </option>
-                                         <option value="4">
-                                            4
-                                        </option>
-                                         <option value="6">
-                                           6
-                                        </option>
-                                         <option value="8">
-                                            8
-                                        </option>
-                                    </select>
-                                    <label>Choose Date</label>
-                                    <input type="date" name="" class="form-control">
-                                    <label>Choose Time slot</label>
-                                    <select class="form-control text-center">
-                                        <option selected="" disabled="">-- Time Slot --</option>
-                                        <option value="1">
-                                            1- 9:30AM - 12:30 PM
-                                        </option>
-                                        <option value="1">
-                                            2- 2:00PM - 05:00 PM
-                                        </option>
-                                    </select><br>
-                                    <input type="submit" name="" value="Save Now" class="btn btn-primary">
+<br><br><br>
 
-                                </form>
-                                <br>
-                            </div>
-
-                            <div class="col-md-6 border">
-                                <h2>Scheduled Exams</h2>
-                                <p>Display all the upcoming exam</p>
-                                <table class="table table-bordered">
-                                    <tr>
-                                        <th>Sl No</th>
-                                        <th>Title of Exam</th>
-                                        <th>branch</th>
-                                        <th>sem</th>
-                                        <th>Timing Slot</th>
-                                        <th>Action</th>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Java 6th Sem</td>
-                                        <td>CSE</td>
-                                        <td>6</td>
-                                        <td>1. 9:30 AM to 12:30PM</td>
-                                        <td>
-                                            <button class="btn btn-danger btn-sm">
-                                                        <i class="fa fa-trash"></i>
-                                                    </button>
-                                        </td>
-                                    </tr>
-                                    
-                                </table> 
-                            </div>
-                        </div>
-                        
-                    </div>
-         
-    </section>
-
-
-
-
-   <br><br><br>
-
-   <%- include('../includes/footer.ejs') %>
+<%- include('../includes/footer.ejs') %>

@@ -1,99 +1,88 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-	<title>Add Exam |Admin Dashboard</title>
+	<title><%= pageTitle %></title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../fa-icons/css/font-awesome.min.css">
 </head>
 <body>
 	
-	<header>
+<header>
  <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
-		 	<div class="container">
-  <!-- Brand -->
-  <a class="navbar-brand" href="index.html">Home</a>
+		<div class="container">
+      <!-- Brand -->
+      <a class="navbar-brand" href="/admin">Home</a>
 
-  <!-- Toggler/collapsibe Button -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+      <!-- Toggler/collapsibe Button -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-  <!-- Navbar links -->
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav text-center">
-      
-       <!-- Dropdown -->
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"> 
-     <span class="fa fa-graduation-cap text-danger"></span>  Student 
-      </a>
-      <div class="dropdown-menu">
-      
-        <a class="dropdown-item" href="add-student.html">Add Student <span class="fa fa-plus-circle text-info"></span></a>
-          <a class="dropdown-item" href="view-student.html">View Student <span class="fa fa-eye text-info"></span></a>
-        
-      </div>
-    </li>
-       <!-- Dropdown -->
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-      |  <span class="fa fa-pencil-square-o text-danger"></span> Faculty 
-      </a>
-      <div class="dropdown-menu">
-      
-        <a class="dropdown-item" href="add-faculty.html">Add Faculty <span class="fa fa-plus-circle text-info"></span></a>
-          <a class="dropdown-item" href="view-faculty.html">View Faculty <span class="fa fa-eye text-info"></span></a>
-        
-      </div>
-    </li>
-      <!-- Dropdown -->
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">|   
-      <span class="fa fa-book text-danger"></span> Exam  
-      </a>
-      <div class="dropdown-menu">
-      
-        <a class="dropdown-item" href="add-exam.html">Add Exam <span class="fa fa-plus-circle text-info"></span></a>
-          <a class="dropdown-item" href="view-exam.html">View Exams <span class="fa fa-eye text-info"></span></a>
-        
-      </div>
-    </li>
-   
-    <!-- Dropdown -->
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-      |  <span class="fa fa-users text-danger"></span> Attendence
-      </a>
-      <div class="dropdown-menu">
-       <a class="dropdown-item" href="clear-attendence.html">Clear Attendence <span class="fa fa-plus-circle text-info"></a>
-        <a class="dropdown-item" href="shortage-attendence.html">Shortage Attendence <span class="fa fa-plus-circle text-info"></span></a>
-         
-        
-      </div>
-    </li>
+      <!-- Navbar links -->
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav text-center">
+          
+          <!-- Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"> 
+              <span class="fa fa-graduation-cap text-danger"></span>  Student 
+            </a>
+            <div class="dropdown-menu">           
+              <a class="dropdown-item" href="/admin/add-student">Add Student <span class="fa fa-plus-circle text-info"></span></a>
+              <a class="dropdown-item" href="/admin/view-student">View Student <span class="fa fa-eye text-info"></span></a>
+            </div>
+          </li>
 
-    <li class="nav-item">
-      <a class="nav-link" href="university-exam.html">
-      	| <span class="fa fa-university text-danger"></span>University Exam</a>
-    </li>
-
-
-    <!-- Dropdown -->
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-      |  <span class="fa fa-gear text-danger"></span> Setting
-      </a>
-      <div class="dropdown-menu">
-       <a class="dropdown-item" href="profile.html">Profile <span class="fa fa fa-user text-info"></a>
-        <a class="dropdown-item" href="shortage-attendence.html">Logout <span class="fa fa-sign-out text-info"></span></a> <!-- // when clicked on logout, kill the session and redirect to home page -->
-         
+          <!-- Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            |  <span class="fa fa-pencil-square-o text-danger"></span> Faculty 
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/admin/add-faculty">Add Faculty <span class="fa fa-plus-circle text-info"></span></a>
+              <a class="dropdown-item" href="/admin/view-faculty">View Faculty <span class="fa fa-eye text-info"></span></a>
+            </div>
+          </li>
+          <!-- Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">|   
+              <span class="fa fa-book text-danger"></span> Exam  
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/admin/add-exam">Add Exam <span class="fa fa-plus-circle text-info"></span></a>
+              <a class="dropdown-item" href="/admin/view-exam">View Exams <span class="fa fa-eye text-info"></span></a>        
+            </div>
+          </li>
         
+          <!-- Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            |  <span class="fa fa-users text-danger"></span> Attendence
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/admin/clear-attendence">Clear Attendence <span class="fa fa-plus-circle text-info"></a>
+              <a class="dropdown-item" href="/admin/shortage-attendence">Shortage Attendence <span class="fa fa-plus-circle text-info"></span></a>            
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/university-exam">
+              | <span class="fa fa-university text-danger"></span>University Exam</a>
+          </li>
+
+          <!-- Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            |  <span class="fa fa-gear text-danger"></span> Setting
+            </a>
+            <div class="dropdown-menu">
+            <a class="dropdown-item" href="/admin/profile">Profile <span class="fa fa fa-user text-info"></a>
+              <a class="dropdown-item" href="/admin/shortage-attendence">Logout <span class="fa fa-sign-out text-info"></span></a> <!-- // when clicked on logout, kill the session and redirect to home page --> 
+            </div>
+          </li>
+        </ul>
       </div>
-    </li>
-    </ul>
-  </div>
-</div> <!-- // container -->
-</nav> 
-	</header><br><br><br>
+    </div> <!-- // container -->
+  </nav> 
+</header><br><br><br>

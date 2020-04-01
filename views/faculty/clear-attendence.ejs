@@ -1,56 +1,41 @@
 <%- include('../includes/faculty-nav.ejs') %>
 
-   <section class="container">
-   	 
-   	<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item active" aria-current="page">
-    Admin Dashboard / Clear Attendence Exams</li>
-  </ol>
-</nav>
-   </section>
+<section class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">
+        Admin Dashboard / Clear Attendence Exams
+      </li>
+    </ol>
+  </nav>
+</section>
 
-    <section>
-        <div class="container">
-                      
-                         <div class="row">
-                           
-                             <!-- // show attendence of his sem only -->
-                             <div class="col-md-6 border">
-                                <br>
-                                <h4>Clear Student's Result</h4>
-                                <table class="table table-bordered table-striped table-sm">
-                                    <tr>
-                                        
-                                        <th>
-                                            BRANCH
-                                        </th>
-                                        <th>
-                                            SEM
-                                        </th>
-                                        <th>
-                                            Action
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>CSE</td>
-                                        <TD>2</TD>
-                                        <td>
-                                            <button class="btn btn-primary btn-sm">Download <i class="fa fa-cloud-download"></i></button>
-                                        </td>
-                                    </tr>
-                                    
-                                </table>
-                            </div>
-                             
-                         </div> <!-- // row -->
-                    </div>
-        
-    </section>
+<section>
+  <div class="container">
+      <div class="row">
+        <!-- // show attendence of his sem only -->
+        <div class="col-md-6 border">
+          <br>
+          <h4>Clear Student's Result</h4>
+          <table class="table table-bordered table-striped table-sm">
+            <tr>
+              <th>BRANCH </th>
+              <th>SEM</th>
+              <th>Action</th>
+            </tr>
+            <tr>
+              <td>CSE</td>
+              <TD>2</TD>
+              <td>
+                <button class="btn btn-primary btn-sm">Download <i class="fa fa-cloud-download"></i></button>
+              </td>
+            </tr>
+          </table>
+      </div>
+    </div> <!-- // row -->
+  </div>
+</section>
 
+<br><br><br>
 
-
-
-   <br><br><br>
-
-   <%- include('../includes/footer.ejs') %>
+<%- include('../includes/footer.ejs') %>

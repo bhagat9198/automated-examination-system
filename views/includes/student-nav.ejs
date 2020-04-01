@@ -1,58 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-	<title>Clear Attendence  |Admin Dashboard</title>
+	<title><%= pageTitle %></title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../fa-icons/css/font-awesome.min.css">
 </head>
 <body>
 	
-	<header>
+<header>
  <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
-		 	<div class="container">
-  <!-- Brand -->
-  <a class="navbar-brand" href="index.html">Home</a>
+		<div class="container">
+      <!-- Brand -->
+      <a class="navbar-brand" href="/student">Home</a>
 
-  <!-- Toggler/collapsibe Button -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+      <!-- Toggler/collapsibe Button -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-  <!-- Navbar links -->
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav text-center">
-      
-    <!-- Dropdown -->
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-      |  <span class="fa fa-users text-danger"></span> Attendence
-      </a>
-      <div class="dropdown-menu">
-       <a class="dropdown-item" href="clear-attendence.html">Clear Attendence <span class="fa fa-plus-circle text-info"></a>
-        <a class="dropdown-item" href="shortage-attendence.html">Shortage Attendence <span class="fa fa-plus-circle text-info"></span></a>
-         
-        
+      <!-- Navbar links -->
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav text-center">
+          <!-- Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            |  <span class="fa fa-users text-danger"></span> Attendence
+            </a>
+            <div class="dropdown-menu">
+            <a class="dropdown-item" href="/student/clear-attendence">Clear Attendence <span class="fa fa-plus-circle text-info"></a>
+              <a class="dropdown-item" href="/student/shortage-attendence">Shortage Attendence <span class="fa fa-plus-circle text-info"></span></a>
+            </div>
+          </li>
+          <!-- Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            |  <span class="fa fa-gear text-danger"></span> Setting
+            </a>
+            <div class="dropdown-menu">
+            <a class="dropdown-item" href="/student/profile">Profile <span class="fa fa fa-user text-info"></a>
+              <a class="dropdown-item" href="/student/shortage-attendence">Logout <span class="fa fa-sign-out text-info"></span></a> <!-- // when clicked on logout, kill the session and redirect to home page -->
+            </div>
+          </li>
+        </ul>
       </div>
-    </li>
-
-
-
-    <!-- Dropdown -->
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-      |  <span class="fa fa-gear text-danger"></span> Setting
-      </a>
-      <div class="dropdown-menu">
-       <a class="dropdown-item" href="profile.html">Profile <span class="fa fa fa-user text-info"></a>
-        <a class="dropdown-item" href="shortage-attendence.html">Logout <span class="fa fa-sign-out text-info"></span></a> <!-- // when clicked on logout, kill the session and redirect to home page -->
-         
-        
-      </div>
-    </li>
-    </ul>
-  </div>
-</div> <!-- // container -->
-</nav> 
-	</header><br><br><br>
+    </div> <!-- // container -->
+  </nav> 
+</header><br><br><br>

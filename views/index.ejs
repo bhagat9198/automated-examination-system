@@ -1,161 +1,143 @@
 <%- include('./includes/index-nav.ejs') %>
+
 <body id="bg-user">
 	<div class="layer">
- <br>
-	<header class="container text-center">
-		<div class="row">
-			<div class="col-md-4 col-sm-4 col-4">
-				<!-- Button to Open the Modal -->
-       <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-     Admin Login <i class="fa fa-lock" aria-hidden="true"></i>
-     </button>
-			</div>
+    <br>
+	  <header class="container text-center">
+		  <div class="row">
+			  <div class="col-md-4 col-sm-4 col-4">
+				  <!-- Button to Open the Modal -->
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Admin Login 
+            <i class="fa fa-lock" aria-hidden="true"></i>
+          </button>
+			  </div>
 
-			<div class="col-md-4 col-sm-4 col-4">
-				<!-- Button to Open the Modal -->
-       <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1">
-     Faculty Login <i class="fa fa-lock" aria-hidden="true"></i>
-     </button>
+			  <div class="col-md-4 col-sm-4 col-4">
+				  <!-- Button to Open the Modal -->
+          <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1">Faculty Login 
+            <i class="fa fa-lock" aria-hidden="true"></i>
+          </button>
+			  </div>
 
-			</div>
+        <div class="col-md-4 col-sm-4 col-4">
+          <!-- Button to Open the Modal -->
+          <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal2">Student Login 
+            <i class="fa fa-lock" aria-hidden="true"></i>
+          </button>
+        </div>
+		  </div>
 
-			<div class="col-md-4 col-sm-4 col-4">
-				<!-- Button to Open the Modal -->
-       <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal2">
-     Student Login <i class="fa fa-lock" aria-hidden="true"></i>
-     </button>
-			</div>
-		</div>
-
-<!-- The Modal -->
-<div class="modal" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Admin Login</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <!-- The Modal -->
+      <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Admin Login</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+              <form method="POST" action="/admin">
+                <label>Username / Email:*</label>
+                <input type="text" name="email" placeholder="Please Enter Email or Username" class="form-control"><br>
+                <label>Password:*</label>
+                <input type="password" name="password" placeholder="Please Enter Password" class="form-control"><br>
+                <input type="submit" name="login-as-admin" value="Login Now" class="btn btn-info">
+                <!-- redirect to admin folder index.html when login success -->
+              </form>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Modal body -->
-      <div class="modal-body">
-        <form >
-        	<label>Username / Email:*</label>
-        	<input type="text" name="email" placeholder="Please Enter Email or Username" class="form-control"><br>
-        	<label>Password:*</label>
-        	<input type="password" name="password" placeholder="Please Enter Password" class="form-control"><br>
-        	<input type="submit" name="login-as-admin" value="Login Now" class="btn btn-info">
-        	<!-- redirect to admin folder index.html when login success -->
-        </form>
+      <!-- //// 2nd modal // -->
+      <!-- The Modal -->
+      <div class="modal" id="myModal1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Faculty Login</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+              <form method="POST" action="/faculty">
+                <label>Username / Email:*</label>
+                <input type="text" name="email" placeholder="Please Enter Email or Username" class="form-control"><br>
+                <label>Password:*</label>
+                <input type="password" name="password" placeholder="Please Enter Password" class="form-control"><br>
+                <input type="submit" name="login-as-staff" value="Login Now" class="btn btn-info">
+                <!-- redirect to faculty folder index.html when login success -->
+              </form>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      <!-- //// student login // -->
+      <!-- The Modal -->
+      <div class="modal" id="myModal2">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Student Login</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+              <form method="POST" action="/student">
+                <label>Username / Email:*</label>
+                <input type="text" name="email" placeholder="Please Enter Email or Username" class="form-control"><br>
+                <label>Password:*</label>
+                <input type="password" name="password" placeholder="Please Enter Password" class="form-control"><br>
+                <input type="submit" name="login-as-student" value="Login Now" class="btn btn-info"> 
+                <!-- redirect to student folder index.html when login success -->
+              </form>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
       </div>
-
-    </div>
-  </div>
-</div>
-
-<!-- //// 2nd modal // -->
-<!-- The Modal -->
-<div class="modal" id="myModal1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Faculty Login</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        <form>
-        	<label>Username / Email:*</label>
-        	<input type="text" name="email" placeholder="Please Enter Email or Username" class="form-control"><br>
-        	<label>Password:*</label>
-        	<input type="password" name="password" placeholder="Please Enter Password" class="form-control"><br>
-        	<input type="submit" name="login-as-staff" value="Login Now" class="btn btn-info">
-        	<!-- redirect to faculty folder index.html when login success -->
-        </form>
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-      </div>
-
-    </div>
-  </div>
-</div>
-<!-- //// student login // -->
-<!-- The Modal -->
-<div class="modal" id="myModal2">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Student Login</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        <form >
-        	<label>Username / Email:*</label>
-        	<input type="text" name="email" placeholder="Please Enter Email or Username" class="form-control"><br>
-        	<label>Password:*</label>
-        	<input type="password" name="password" placeholder="Please Enter Password" class="form-control"><br>
-        	<input type="submit" name="login-as-student" value="Login Now" class="btn btn-info"> 
-        	<!-- redirect to student folder index.html when login success -->
-        </form>
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-      </div>
-
-    </div>
-  </div>
-</div>
-		
-	</header>
-	<br>
-	<br>
-	<section class="container text-center">
-    <div class="row">
-    	<div class="col-md-4 col-sm-6 col-12 text-white ">
-    		<br>
-    			<h4><u>Automated Examination System</u></h4>
-    		    <h5 >Bachelor of Engineering
-                    <br>  In<br>
-                Information Science and Engineering</h5>
-    
-    	</div>
-    	<div class="col-md-4 col-sm-6 col-12 text-white">
-    	  <h2 >By</h2>
-        <table class="table table-bordered bg-white table-sm table-hover">
-          <tr>
-            <th>Sl No</th>
-            <th>Name</th>
-            <th>USN</th>
-          </tr>
-          <tr>
+	  </header>
+	  <br><br>
+    <section class="container text-center">
+      <div class="row">
+        <div class="col-md-4 col-sm-6 col-12 text-white ">
+          <br>
+          <h4><u>Automated Examination System</u></h4>
+          <h5 >Bachelor of Engineering<br>In<br>Information Science and Engineering</h5>
+        </div>
+        <div class="col-md-4 col-sm-6 col-12 text-white">
+          <h2 >By</h2>
+          <table class="table table-bordered bg-white table-sm table-hover">
+            <tr>
+              <th>Sl No</th>
+              <th>Name</th>
+              <th>USN</th>
+            </tr>
+            <tr>
               <td>1</td>
               <td>BHAGAT SINGH</td>
               <td>1VA17IS011</td>
-          </tr>
-        </table>
-    	
-    	</div>
-    </div><!-- / row -->
-		
-	</section><br><br><br>
+            </tr>
+          </table>
+        </div>
+      </div><!-- / row -->
+    </section><br><br><br>
 
-  <!-- including -->
-  <%- include('./includes/footer.ejs') %>
+<!-- including -->
+<%- include('./includes/footer.ejs') %>

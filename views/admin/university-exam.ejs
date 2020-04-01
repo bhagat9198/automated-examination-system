@@ -1,68 +1,53 @@
 <%- include('../includes/admin-nav.ejs') %>
 
-   <section class="container">
-   	 
-   	<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item active" aria-current="page">
-    Admin Dashboard / University Exam</li>
-  </ol>
-</nav>
-   </section>
+<section class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">
+      Admin Dashboard / University Exam</li>
+    </ol>
+  </nav>
+</section>
 
-	<br> <br>
-  <section>
-     <div class="container">
-                      
-                         <div class="row">
-                           
-                            <div class="col-md-6">
-                                <div class="border" style="padding:10px;">
-                                    <p>Add University Schedule</p>
-                               <form>
-                                   <label>Title:</label>
-                                   <input type="text" name="name" placeholder="Please Enter Title" class="form-control">
-                                   <br>
-                                   <label>Upload File:</label>
-                                   <input type="file" name="file" class="form-control">
-                                   <br>
-                                   <input type="submit" name="" value="Add Now" class="btn btn-primary">
+<br> <br>
 
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="border" style="padding:10px;">
+          <p>Add University Schedule</p>
+          <form>
+            <label>Title:</label>
+            <input type="text" name="name" placeholder="Please Enter Title" class="form-control">
+            <br>
+            <label>Upload File:</label>
+            <input type="file" name="file" class="form-control">
+            <br>
+            <input type="submit" name="" value="Add Now" class="btn btn-primary">
+          </form>
+        </div> <!-- // form order -->
+      </div>
+      <div class="col-md-6 border">
+        <br>
+        <h4>All Schedules</h4>
+        <table class="table table-bordered table-striped">
+          <tr>
+            <th>Title </th>
+            <th> Action </th>
+          </tr>
+          <tr>
+            <td>Dummy title</td>
+            <td>
+                <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div> <!-- // row -->
+  </div>
+</section>
 
-                               </form>
-                               </div> <!-- // form order -->
-                            </div>
-                             <div class="col-md-6 border">
-                                <br>
-                                <h4>All Schedules</h4>
-                                <table class="table table-bordered table-striped">
-                                    <tr>
-                                        <th>
-                                            Title
-                                        </th>
-                                        <th>
-                                            Action
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>Dummy title</td>
-                                        <td>
-                                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    
-                                </table>
-                            </div>
-                             
-                         </div> <!-- // row -->
-                    </div>
-  </section>
-   
+<br><br><br>
 
-
-
-
-
-
-  <br><br><br>
-  <%- include('../includes/footer.ejs') %>
+<%- include('../includes/footer.ejs') %>

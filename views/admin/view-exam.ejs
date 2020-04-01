@@ -1,94 +1,83 @@
 <%- include('../includes/admin-nav.ejs') %>
 
-   <section class="container">
-   	 
-   	<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item active" aria-current="page">
-    Admin Dashboard / View Exams</li>
-  </ol>
-</nav>
-   </section>
+<section class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">
+        Admin Dashboard / View Exams
+      </li>
+    </ol>
+  </nav>
+</section>
 
-    <section>
-         <div class="container">
-            
-                       
-                        <div class="card mb-4">
-                            <div class="card-header"><i class="fa fa-pencil-square-o mr-1"></i>All Exams</div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                              <th>Sl no</th>
-                                              <th>Title</th>
-                                              <th>File</th>   
-                                            </tr>
-                                        </thead>
-                                    
-                                       <tbody>
-                                         <tr>
-                                           <td>1</td>
-                                           <td>Title goes here</td>
-                                           <td>
-                                            <button class="btn btn-info">Download <span class="fa fa-cloud-download"></span></button>
-                                             
-                                           </td>
-                                         </tr>
-                                       </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                           <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header text-left">
-        
-        <h4 class="modal-title text-left">Edit Student Details</h4>
+<section>
+  <div class="container">
+    <div class="card mb-4">
+      <div class="card-header"><i class="fa fa-pencil-square-o mr-1"></i>
+          All Exams
       </div>
-      <div class="modal-body">
-        
-        <label>Name:</label>
-        <input type="text" name="" placeholder="Please Enter Name" class="form-control">
-         <label>Email:</label>
-         <input type="email" name="" placeholder="Please Enter email" class="form-control">
-        <label>Sem:</label>
-        <select class="form-control">
-            <option value="2">2</option>
-             <option value="4">4</option>
-              <option value="6">6</option>
-               <option value="8">8</option>
-        </select>
-        <label>Branch:</label>
-        <select class="form-control">
-            <option value="ISE">ISE</option>
-             <option value="CSE">CSE</option>
-              <option value="ECE">ECE</option>
-               <option value="EEE">EEE</option>
-
-        </select>
-        <label>USN:</label>
-       <input class="form-control" type="text" name="" placeholder="Enter new USN">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Sl no</th>
+                <th>Title</th>
+                <th>File</th>   
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Title goes here</td>
+                <td>
+                  <button class="btn btn-info">Download <span class="fa fa-cloud-download"></span></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
 
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header text-left">         
+            <h4 class="modal-title text-left">Edit Student Details</h4>
+          </div>
+          <div class="modal-body">
+            <label>Name:</label>
+            <input type="text" name="" placeholder="Please Enter Name" class="form-control">
+            <label>Email:</label>
+            <input type="email" name="" placeholder="Please Enter email" class="form-control">
+            <label>Sem:</label>
+            <select class="form-control">
+              <option value="2">2</option>
+              <option value="4">4</option>
+              <option value="6">6</option>
+              <option value="8">8</option>
+            </select>
+            <label>Branch:</label>
+            <select class="form-control">
+              <option value="ISE">ISE</option>
+              <option value="CSE">CSE</option>
+              <option value="ECE">ECE</option>
+              <option value="EEE">EEE</option>
+            </select>
+            <label>USN:</label>
+            <input class="form-control" type="text" name="" placeholder="Enter new USN">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-                    </div>
-    </section>
+</section>
+<br><br><br>
 
-
-
-
-   <br><br><br>
-
-   <%- include('../includes/footer.ejs') %>
+<%- include('../includes/footer.ejs') %>
