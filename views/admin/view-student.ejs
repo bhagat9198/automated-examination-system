@@ -16,76 +16,87 @@
       </div>
       <div class="card-body">
         <div class="table-responsive">
-          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>SEM</th>
-                <th>Branch</th>
-                <th>USN</th>
-                <th>Action</th> 
-              </tr>
-            </thead>
-            <tfoot>
-              <tr>
-                <th>Name</th>
-                <th>SEM</th>
-                <th>Branch</th>
-                <th>usn</th>
-                <th>Action</th>
-              </tr>
-            </tfoot>
-            <tbody>
-              <tr>
-                <td>Yuri Berry</td>
-                <td>2</td>
-                <td>cs</td>
-                <td>16TB125001</td>
-                <td>
-                  <button class="btn btn-danger btn-sm">
-                    <i class="fa fa-trash"></i>
-                  </button>
-                  <button class="btn btn-sm btn-info" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-wrench"></i></button></td>                                             
-              </tr> 
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-    <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header text-left">
-            <h4 class="modal-title text-left">Edit Student Details</h4>
+          <% if(students.length > 0) { %>
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>SEM</th>
+                  <th>Branch</th>
+                  <th>USN</th>
+                  <th>Action</th> 
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>Name</th>
+                  <th>SEM</th>
+                  <th>Branch</th>
+                  <th>usn</th>
+                  <th>Action</th>
+                </tr>
+              </tfoot>
+              <tbody>
+                <% for (let student of students) { %>
+                  <tr>
+                    <td><%= student.name %></td>
+                    <td><%= student.sem %></td>
+                    <td><%= student.branch %></td>
+                    <td><%= student.usn %></td>
+                    <td>
+                      <a href="/admin/delete-student/<%= student._id %>">
+                        <button  class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                      </a>
+                      <button class="btn btn-sm btn-info" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-wrench"></i></button>
+                      <!-- Modal -->
+                      <div id="myModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                          <!-- Modal content-->
+                          <div class="modal-content">
+                            <form  method="POST" action="/admin/update-student">  
+                              <div class="modal-header text-left">
+                                <h4 class="modal-title text-left">Edit Student Details</h4>
+                              </div>
+                              <div class="modal-body">   
+                                  <label>Name:</label>
+                                  <input type="text" name="name" placeholder="Please Enter Name" value="<%= student.name %>" class="form-control">
+                                  <label>Email:</label>
+                                  <input type="email" name="email" placeholder="Please Enter email" value="<%= student.email %>" class="form-control">
+                                  <label>Sem:</label>
+                                  <select class="form-control" name="sem">
+                                    <option value="2">2</option>
+                                    <option value="4">4</option>
+                                    <option value="6">6</option>
+                                    <option value="8">8</option>
+                                  </select>
+                                  <label>Branch:</label>
+                                  <select class="form-control" name="branch">
+                                    <option value="ISE">ISE</option>
+                                    <option value="CSE">CSE</option>
+                                    <option value="ECE">ECE</option>
+                                    <option value="EEE">EEE</option>
+                                  </select>
+                                  <label>USN:</label>
+                                  <input class="form-control" type="text" value="<%= student.usn %>" name="usn" placeholder="Enter new USN">
+                              </div>
+                              <div class="modal-footer">
+                                <input type="submit" name="submit" value="Update" class="btn btn-success">
+                                <input type="hidden" name="student_id" value="<%= student._id %>">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                              </div>
+                            </form> 
+                          </div>
+                        </div>
+                      </div>
+                    </td>                                             
+                  </tr> 
+                <% } %>
+              </tbody>
+            </table>
+          <% } else { %>
+            <h1> No Students Registered</h1>
+          <% } %>
           </div>
-          <div class="modal-body">            
-            <label>Name:</label>
-            <input type="text" name="" placeholder="Please Enter Name" class="form-control">
-            <label>Email:</label>
-            <input type="email" name="" placeholder="Please Enter email" class="form-control">
-            <label>Sem:</label>
-            <select class="form-control">
-              <option value="2">2</option>
-              <option value="4">4</option>
-              <option value="6">6</option>
-              <option value="8">8</option>
-            </select>
-            <label>Branch:</label>
-            <select class="form-control">
-              <option value="ISE">ISE</option>
-              <option value="CSE">CSE</option>
-              <option value="ECE">ECE</option>
-              <option value="EEE">EEE</option>
-            </select>
-            <label>USN:</label>
-            <input class="form-control" type="text" name="" placeholder="Enter new USN">
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-          </div>
-        </div>
       </div>
     </div>
   </div>

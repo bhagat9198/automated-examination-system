@@ -18,7 +18,7 @@
       <div class="col-md-8">
         <div class="border" style="padding:10px;">
           <p>Add Faculty</p>
-          <form>
+          <form method="POST" action="/admin/add-faculty">
             <label>Name:</label>
             <input type="text" name="name" placeholder="Please Enter faculty Name" class="form-control">
             <label>Email:</label>
@@ -26,7 +26,7 @@
             <label>Password:</label>
             <input type="password" name="password" class="form-control" placeholder="Enter Password">
             <br>
-            <input type="submit" name="" value="Add Now" class="btn btn-primary">
+            <input type="submit" name="submit" value="Add Now" class="btn btn-primary">
           </form>
         </div> <!-- // form order -->
       </div>

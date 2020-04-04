@@ -8,6 +8,6 @@ router.get('/clear-attendence', facultyController.clearAttendence);
 router.get('/profile', facultyController.profile);
 router.get('/shortage-attendence', facultyController.shortageAttendence);
 
-router.use('/', facultyController.index);
+router.use('/home', facultyController.index);
 
 module.exports = router

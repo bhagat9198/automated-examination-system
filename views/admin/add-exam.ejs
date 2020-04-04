@@ -23,11 +23,11 @@
     <div class="row">
       <div class="col-md-6 border">
         <h3>Add a new Exam </h3>
-        <form>
+        <form method="POST" action="/admin/add-exam">
           <label>Exam Title</label>
-          <input type="text" name="" class="form-control" placeholder="Please enter title . Ex. Java Exam 6th Sem CS">
+          <input type="text" name="examTitle" class="form-control" placeholder="Please enter title . Ex. Java Exam 6th Sem CS">
           <label>Branch</label>
-          <select class="form-control text-center">
+          <select class="form-control text-center" name="branch">
             <option selected="" disabled="">-- Select Branch --</option>
             <option value="ISE">ISE</option>
             <option value="CSE">CSE</option>
@@ -35,49 +35,58 @@
             <option value="ECE">ECE</option>
           </select>
           <label>Choose Semester</label>
-          <select class="form-control text-center">
+          <select class="form-control text-center" name="sem">
             <option>-- Choose Semester --</option>
             <option value="2">2</option>
             <option value="4">4</option>
             <option value="6">6</option>
             <option value="8">8</option>
           </select>
-          <label>Choose Date</label>
-          <input type="date" name="" class="form-control">
-          <label>Choose Time slot</label>
-          <select class="form-control text-center">
+          <label>Choose Exam Date</label>
+          <input type="date" name="examDate" class="form-control">
+          <label>Choose Exam Time slot</label>
+          <select class="form-control text-center" name="examTime">
             <option selected="" disabled="">-- Time Slot --</option>
-            <option value="1">1- 9:30AM - 12:30 PM</option>
-            <option value="1">2- 2:00PM - 05:00 PM</option>
+            <option value="9:30AM - 12:30 PM">1- 9:30AM - 12:30 PM</option>
+            <option value="2:00PM - 05:00 PM">2- 2:00PM - 05:00 PM</option>
           </select>
           <br>
-          <input type="submit" name="" value="Save Now" class="btn btn-primary">
+          <input type="submit" name="submit" value="Save Now" class="btn btn-primary">
         </form>
         <br>
       </div>
       <div class="col-md-6 border">
         <h2>Scheduled Exams</h2>
         <p>Display all the upcoming exam</p>
-        <table class="table table-bordered">
-          <tr>
-            <th>Sl No</th>
-            <th>Title of Exam</th>
-            <th>branch</th>
-            <th>sem</th>
-            <th>Timing Slot</th>
-            <th>Action</th>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Java 6th Sem</td>
-            <td>CSE</td>
-            <td>6</td>
-            <td>1. 9:30 AM to 12:30PM</td>
-            <td>
-              <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
-            </td>
-          </tr>
-        </table> 
+        <% if(exams.length > 0) { %>
+          <table class="table table-bordered">
+            <tr>
+              <th>Sl No</th>
+              <th>Title of Exam</th>
+              <th>branch</th>
+              <th>sem</th>
+              <th>Timing Slot</th>
+              <th>Action</th>
+            </tr>
+            <% for (let i = 1; i <= exams.length; i++) { %>
+              <tr>
+                <td><%= i %></td>
+                <td><%= exams[i-1].examTitle %></td>
+                <td><%= exams[i-1].branch %></td>
+                <td><%= exams[i-1].sem %></td>
+                <td><%= exams[i-1].examTime %></td>
+                <td>
+                  <form method="POST" action="/admin/delete-exam">
+                    <input type="hidden" name="exam_id" value="<%= exams[i-1]._id %>">
+                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                  </form>
+                </td>
+              </tr>
+            <% } %>
+          </table> 
+        <% } else { %>
+          <h1>No Exams Registered</h1>
+        <% } %>
       </div>
     </div>
   </div>

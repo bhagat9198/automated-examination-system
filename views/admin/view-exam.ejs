@@ -18,24 +18,32 @@
       </div>
       <div class="card-body">
         <div class="table-responsive">
-          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-            <thead>
-              <tr>
-                <th>Sl no</th>
-                <th>Title</th>
-                <th>File</th>   
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Title goes here</td>
-                <td>
-                  <button class="btn btn-info">Download <span class="fa fa-cloud-download"></span></button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <% if(exams.length > 0) { %>
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Sl no</th>
+                  <th>Title</th>
+                  <th>File</th>   
+                </tr>
+              </thead>
+              <tbody>
+                <% for(let i = 1; i <= exams.length; i++) { %>
+                  <tr>
+                    <td><%= i %></td>
+                    <td><%= exams[i-1].examTitle %></td>
+                    <td>
+                      <a href="/admin/view-exam/<%= exams[i-1]._id %>">
+                        <button class="btn btn-info">Download <span class="fa fa-cloud-download"></span></button>
+                      </a>
+                    </td>
+                  </tr>
+                <% } %>
+              </tbody>
+            </table>
+          <% } else { %>
+            <h1>No Exams Registered</h1>
+          <% } %>
         </div>
       </div>
     </div>

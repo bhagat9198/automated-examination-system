@@ -1,2 +1,7 @@
 project files
 node_modules
+test.js
+data/clearAttendence/C*
+data/shortageAttendence/S*
+data/universityExam/U*
+data/exam/E*

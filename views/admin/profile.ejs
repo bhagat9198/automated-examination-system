@@ -26,7 +26,7 @@
         </div>
         <!-- Modal body -->
         <div class="modal-body">
-          <form>
+          <form method="POST" action="/admin/profile">
             <label> Name:*</label>
             <input type="text" name="name" placeholder="Name" class="form-control"><br>
             <label> Email:*</label>
@@ -47,18 +47,27 @@
   <div class="row">
     <div class="col-md-5 border p-2 text-center">
       <h4 class="text-danger">All Admins</h4>
-      <table class="table table-sm table-bordered table-striped table-hover">
-        <tr>
-          <th>Sl no</th>
-          <th>Name</th>
-          <th>Action</th>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Mr Xyz</td>
-          <td><button class="btn btn-danger">Delete <span class="fa fa-trash"></span></button></td>
-        </tr>
-      </table>
+      <% if(admins.length > 0) { %>
+        <table class="table table-sm table-bordered table-striped table-hover">
+          <tr>
+            <th>Sl no</th>
+            <th>Name</th>
+            <th>Action</th>
+          </tr>
+          <% for(let i = 1; i <= admins.length; i++) { %>
+            <tr>
+              <td><%= i %></td>
+              <td><%= admins[i-1].name %></td>
+              <td>
+                <a href="/admin/profile/<%= admins[i-1]._id %>">
+                  <button class="btn btn-danger">Delete <span class="fa fa-trash"></span></button></td>
+                </a>
+              </tr>
+          <% } %>
+        </table>
+      <% } else { %>
+        <h1>No Admin Registered</h1>
+      <% } %>
     </div>
     <div class="col-md-2"></div>
     <div class="col-md-5 border p-2 text-center">
@@ -71,15 +80,15 @@
           </tr>
           <tr>
             <th>Email</td>
-            <td><input type="email" name="" class="form-control" placeholder="Admins email"></td>
+            <td><input type="adminEmail" name="" class="form-control" placeholder="Admins email"></td>
           </tr>
           <tr>
           <th>Password</td>
-            <td><input type="password" name="" class="form-control" placeholder="Admins pw"></td>
+            <td><input type="adminPassword" name="" class="form-control" placeholder="Admins pw"></td>
           </tr>
           <tr>
             <td></td>
-            <td><input type="submit" name="" value="save changes" class="btn btn-primary"></td>
+            <td><input type="submit" name="adminSubmit" value="save changes" class="btn btn-primary"></td>
           </tr>
         </table>
       </form>
