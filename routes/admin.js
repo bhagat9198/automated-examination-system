@@ -60,7 +60,7 @@ const fileFilter3 = (req, file, cb) => {
     cb(null, false)
   }
 }
-
+ 
 const cAttendence = multer({storage: fileStorage1, fileFilter: fileFilter1}).single('clearAttendence');
 const sAttendence = multer({storage: fileStorage2, fileFilter: fileFilter2}).single('shortageAttendence');
 const universityExam = multer({storage: fileStorage3, fileFilter: fileFilter3}).single('universityExamFile');

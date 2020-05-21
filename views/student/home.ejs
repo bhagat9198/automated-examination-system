@@ -1,0 +1,81 @@
+<%- include('../includes/student-nav.ejs') %>
+
+<section class="container">
+  <h4>Student Dashboard</h4>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">
+          Student Dashboard / Home
+        </li>
+      </ol>
+    </nav>
+</section>
+
+<br><br>
+
+<section class="container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 border p-2">
+        <h4>Scheduled Exams </h4> 
+        <% if(data.exams.length > 0) { %>
+          <table class="table table-bordered table-sm text-center">
+            <tr>
+              <th>Sl No</th>
+              <th>Date</th>
+              <th>Time Slot</th>
+            </tr>
+            <% let index = 1 %>
+            <% for(let exam = 0; exam < data.exams.length; exam++) { %>
+              <tr>
+                <td><%= index %></td>
+                <td><%= data.exams[exam].examDate %></td>
+                <td><%= data.exams[exam].examTime %></td>
+              </tr>
+              <% index++ %>
+            <% } %>
+          </table> 
+        <% } else { %>
+          <h1>No Exams Registered.</h1>
+        <% } %>
+        <br>
+      </div>
+    </div>
+    <br><hr>
+    <div class="row">
+      <div class="col-md-6 border p-2">
+        <h4>University Exam Schedules</h4>
+        <% if(data.universityExams.length > 0) { %>
+          <table class="table table-bordered table-striped table-hover table-sm text-center">
+            <tr>
+              <th>Sl No</th>
+              <th>Title</th>
+              <th>Action</th>
+            </tr>
+            <% let index = 1 %>
+            <% for(let uexam = 0; uexam < data.universityExams.length; uexam++) { %>
+              <tr>
+                <td><%= index %></td>
+                <td><%= data.universityExams[uexam].examTitle %></td>
+                <td>
+                  <a href="/student/download-university-exam/<%= data.universityExams[uexam]._id %>">
+                    <button class="btn btn-warning">Download <i class="fa fa-cloud-download"></i> </button>
+                  </a>
+                </td>
+              </tr>
+              <% index++ %>
+            <% } %>
+          </table>
+        <% } else { %>
+          <br>
+          <h1>No University Exams Registered.</h1>
+          <br>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<br><br><br>
+
+<%- include('../includes/footer.ejs') %>

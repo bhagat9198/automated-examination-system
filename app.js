@@ -14,7 +14,6 @@ const facultyRoutes = require('./routes/faculty');
 const studentRoutes = require('./routes/student');
 const homeRoutes = require('./routes/home');
 
-
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -34,7 +33,7 @@ app.use('/faculty', facultyRoutes);
 app.use('/student', studentRoutes);
 app.use('/', homeRoutes);
 
-// if no route got matched
+// if no route got matched 
 app.use((req, res, next) =>{
   res.render('404');
 })

@@ -26,6 +26,9 @@ const ExamSchema = new Schema({
   examFile: {
     type: String,
     required: true
+  },
+  facultyRequire: {
+    type: Number
   }
 })
 

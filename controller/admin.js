@@ -17,7 +17,6 @@ exports.getAddExam = (req, res, next) => {
   Exam.find()
   .then(exams => {
     console.log(exams);
-    
     res.render('admin/add-exam', {
       pageTitle: 'Add Exam |Admin Dashboard',
       exams: exams
@@ -91,7 +90,8 @@ exports.postAddExam = (req, res, next) => {
     sem: sem,
     examDate: examDate,
     examTime: examTime,
-    examFile: examFile
+    examFile: examFile,
+    facultyRequire: 10
   });
 
   exam.save()
@@ -126,7 +126,7 @@ exports.postAddFaculty = (req, res, next) => {
   const faculty = new Faculty({
     name: name,
     email: email,
-    password: password
+    password: password,
   });
 
   faculty.save()
@@ -349,11 +349,11 @@ exports.getViewExam = (req, res, next) => {
 
 exports.getExamTimeTable = (req, res, next) => {
   const exam_id = req.params.exam_id;
-  console.log(exam_id);
+  // console.log(exam_id);
   
   Exam.findById(mongoose.Types.ObjectId(exam_id))
   .then(examDetails => {
-    console.log(examDetails);
+    // console.log(examDetails);
 
     const rootDir = require('../util/path');
     const fileName = examDetails.examFile;
