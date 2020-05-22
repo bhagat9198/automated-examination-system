@@ -3,19 +3,26 @@ const express = require('express');
 const router = express.Router()
 
 const facultyController = require('../controller/faculty');
+const facultyLoggedIn = require('../middleware/loggedIn').facultyLoggedIn;
 
-router.get('/clear-attendence', facultyController.getClearAttendence);
-router.get('/clear-attendence/:clearAttendence_id', facultyController.getDownloadClearAttendence);
+router.get('/clear-attendence', facultyLoggedIn, facultyController.getClearAttendence);
+router.get('/clear-attendence/:clearAttendence_id', facultyLoggedIn, facultyController.getDownloadClearAttendence);
 
-router.get('/profile', facultyController.getProfile);
+router.get('/profile', facultyLoggedIn, facultyController.getProfile);
 
-router.get('/university-exam/:universityExam_id', facultyController.getDownloadUniversityExams);
+router.get('/university-exam/:universityExam_id', facultyLoggedIn, facultyController.getDownloadUniversityExams);
 
-router.get('/applyExam', facultyController.getApplyExam);
+router.get('/applyExam', facultyLoggedIn, facultyController.getApplyExam);
 
-router.get('/shortage-attendence', facultyController.getShortageAttendence);
-router.get('/shortage-attendence/:shortageAttendence_id', facultyController.getDownloadShortageAttendence);
+router.get('/shortage-attendence', facultyLoggedIn, facultyController.getShortageAttendence);
+router.get('/shortage-attendence/:shortageAttendence_id', facultyLoggedIn, facultyController.getDownloadShortageAttendence);
 
-router.get('/home', facultyController.getHome);
+router.get('/home', facultyLoggedIn, facultyController.getHome);
+
+router.get('/apply-exam/:exam_id', facultyLoggedIn, facultyController.getApplyExam);
+
+router.post('/update-password', facultyLoggedIn, facultyController.postUpdatePassword);
+
+router.get('/logout', facultyLoggedIn, facultyController.getLogout);
 
 module.exports = router

@@ -16,23 +16,37 @@
   <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8 border p-2 text-center">
-      <h4 class="text-primary">My Details</h4> 
-      <form>
+      <h4 class="text-primary">Password Reset</h4>
+      <% if(successMessage) { %>
+        <br>
+        <div class="text-center" style="color: green;"><%= successMessage %></div>
+        <br>
+      <% } %>
+      <% if(errorMessage) { %>
+        <br>
+        <div class="text-center" style="color: red;"><%= errorMessage %></div>
+        <br>
+      <% } %> 
+      <form method="POST" action="/student/update-password">
         <table class="table table-sm table-hover table-bordered">
           <tr>
             <th>Name</th>
-            <td>Mr XYZ</td>
+            <td><%= user.name %></td>
           </tr>
           <tr>
             <th>Email</th>
-            <td><input type="email" name="" class="form-control" placeholder="faculty email"></td>
+            <td><input type="email" name="email"  class="form-control" placeholder="faculty email"></td>
           </tr>
           <tr>
             <th>Password</th>
-            <td><input type="password" name="" class="form-control" placeholder="faculty pw"></td>
+            <td><input type="password" name="password" class="form-control" placeholder="New faculty password password"></td>
           </tr>
           <tr>
-            <td></td>
+            <th>Confirm Password</th>
+            <td><input type="password" name="cpassword" class="form-control" placeholder="Confirm new faculty password password"></td>
+          </tr>
+          <tr>
+            <td><input type="text" hidden name="_id" value="<%= user._id %>"> </td>
             <td><input type="submit" name="" value="Save Changes" class="btn btn-primary"></td>
           </tr>
         </table>

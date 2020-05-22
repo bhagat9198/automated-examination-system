@@ -28,11 +28,13 @@
         <div class="modal-body">
           <form method="POST" action="/admin/profile">
             <label> Name:*</label>
-            <input type="text" name="name" placeholder="Name" class="form-control"><br>
+            <input type="text" required name="name" placeholder="Name" class="form-control"><br>
             <label> Email:*</label>
-            <input type="text" name="email" placeholder="Email" class="form-control"><br>
+            <input type="text" required name="email" placeholder="Email" class="form-control"><br>
             <label>Password:*</label>
-            <input type="password" name="password" placeholder="Password" class="form-control"><br>
+            <input type="password" required name="password" placeholder="Password" class="form-control"><br>
+            <label>Confirm Password:*</label>
+            <input type="password" required name="cpassword" placeholder="Password" class="form-control"><br>
             <input type="submit" name="login-as-admin" value="Save Now" class="btn btn-info">
             <!-- redirect to admin folder index.html when login success -->
           </form>
@@ -71,29 +73,46 @@
     </div>
     <div class="col-md-2"></div>
     <div class="col-md-5 border p-2 text-center">
-      <h4 class="text-primary">My Details</h4> 
-      <form>
+      <h4 class="text-primary">Password Reset</h4> 
+      <% if(successMessage) { %>
+        <br>
+        <div class="text-center" style="color: green;"><%= successMessage %></div>
+        <br>
+      <% } %>
+      <% if(errorMessage) { %>
+        <br>
+        <div class="text-center" style="color: red;"><%= errorMessage %></div>
+        <br>
+      <% } %>
+      <form method="POST" action="/admin/update-password">
         <table class="table table-sm table-hover table-bordered">
           <tr>
             <th>Name</th>
-            <td>Mr XYZ</td>
+            <td><%= user.name %></td>
           </tr>
           <tr>
             <th>Email</td>
-            <td><input type="adminEmail" name="" class="form-control" placeholder="Admins email"></td>
+            <td>
+              <input type="adminEmail" disabled name="emailHidden" class="form-control" placeholder="Admins email" value="<%= user.email %>"> 
+              <input type="adminEmail" hidden name="email" class="form-control" placeholder="Admins email" value="<%= user.email %>">     
+            </td>
           </tr>
           <tr>
-          <th>Password</td>
-            <td><input type="adminPassword" name="" class="form-control" placeholder="Admins pw"></td>
+            <th>Password</td>
+            <td><input type="password" name="password" class="form-control" placeholder="New Password"></td>
           </tr>
           <tr>
-            <td></td>
-            <td><input type="submit" name="adminSubmit" value="save changes" class="btn btn-primary"></td>
+            <th>Confirm Password</td>
+            <td><input type="password" name="cpassword" class="form-control" placeholder="Confirm New Password"></td>
+          </tr>
+          <tr>
+            <td><input type="input" hidden name="_id" value="<%= user._id %>"></td>
+            <td><input type="submit" name="adminSubmit" value="Save changes" class="btn btn-primary"></td>
           </tr>
         </table>
       </form>
     </div>
-  </div><!-- /// row -->
+  </div>
 </section>
 
 <br><br><br><br><br>

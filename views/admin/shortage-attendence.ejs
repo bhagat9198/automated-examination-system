@@ -18,7 +18,7 @@
           <p>Add Attendence</p>
           <form method="POST" action="/admin/shortage-attendence" enctype="multipart/form-data">
             <label>Choose Branch:</label>
-            <select class="form-control text-center" name="branch" >
+            <select required class="form-control text-center" name="branch" >
               <option selected="" disabled="">-- Choose Branch --</option>
               <option value="CSE">CSE</option>
               <option value="ISE">ISE</option>
@@ -26,7 +26,7 @@
               <option value="EEE">EEE</option>
             </select>
             <label>Choose Semester:</label>
-            <select class="form-control text-center" name="sem" >
+            <select required class="form-control text-center" name="sem" >
               <option selected="" disabled="">-- Choose Semester --</option>
               <option value="2">2</option>
               <option value="4">4</option>
@@ -35,7 +35,7 @@
             </select>
             <br>
             <label>Upload File:</label>
-            <input type="file" name="shortageAttendence" class="form-control">
+            <input  required type="file" name="shortageAttendence" class="form-control">
             <br>
             <input type="submit" name="submit" value="Add Now" class="btn btn-primary">
           </form>

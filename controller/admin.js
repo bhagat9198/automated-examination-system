@@ -4,6 +4,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const uniqid = require('uniqid');
 const PdfPrinter = require('pdfmake');
+const bcryptjs = require('bcryptjs');
 
 const Student = require('../models/admin/student');
 const Faculty = require('../models/admin/faculty');
@@ -113,8 +114,24 @@ exports.postDeleteExam = (req, res, next) => {
 }
 
 exports.getAddFaculty = (req, res, next) => {
+  let errorMessage = req.flash('error');
+  if(errorMessage.length > 0) {
+    // console.log(errorMessage);
+  } else {
+    errorMessage = null;
+  }
+
+  let successMessage = req.flash('success');
+  if(successMessage.length > 0) {
+    // console.log(errorMessage);
+  } else {
+    successMessage = null;
+  }
+
   return res.render('admin/add-faculty', {
-    pageTitle: 'Add Faculty |Admin Dashboard'
+    pageTitle: 'Add Faculty |Admin Dashboard',
+    errorMessage: errorMessage,
+    successMessage: successMessage
   });
 };
 
@@ -122,23 +139,57 @@ exports.postAddFaculty = (req, res, next) => {
   const name = req.body.name;
   const email = req.body.email;
   const password = req.body.password;
+  const cpassword = req.body.cpassword;
 
-  const faculty = new Faculty({
-    name: name,
-    email: email,
-    password: password,
-  });
-
-  faculty.save()
-  .then(result => {
-    res.redirect('/admin/home');
+  Faculty.findOne({email: email})
+  .then(faculty => {
+    if(faculty) {
+      res.redirect('/faculty/add-faculty')
+    } else {
+      if(password === cpassword) {
+        bcryptjs.hash(password, 12)
+        .then(hashedPassword => {
+          const faculty = new Faculty({
+            name: name,
+            email: email,
+            password: hashedPassword,
+            examApply: {}
+          });
+          return faculty.save()
+          .then(result => {
+            req.flash('success','Faculty record successfully');
+            return res.redirect('/admin/add-faculty');
+          })
+          .catch(err => console.log(err));
+        })
+      } else {
+        req.flash('error','Password and confirm password didnt match');
+        return res.redirect('/admin/add-faculty');
+      }
+    }
   })
-  .catch(err => console.log(err));
+  
 };
 
 exports.getAddStudent = (req, res, next) => {
+  let errorMessage = req.flash('error');
+  if(errorMessage.length > 0) {
+    // console.log(errorMessage);
+  } else {
+    errorMessage = null;
+  }
+
+  let successMessage = req.flash('success');
+  if(successMessage.length > 0) {
+    // console.log(errorMessage);
+  } else {
+    successMessage = null;
+  }
+
   return res.render('admin/add-student', {
-    pageTitle: 'Add Student |Admin Dashboard'
+    pageTitle: 'Add Student |Admin Dashboard',
+    errorMessage: errorMessage,
+    successMessage: successMessage
   });
 };
 
@@ -146,22 +197,40 @@ exports.postAddStudent = (req, res, next) => {
   const name = req.body.name;
   const email = req.body.email;
   const password = req.body.password;
+  const cpassword = req.body.cpassword;
   const usn = req.body.usn;
   const branch = req.body.branch;
   const sem = req.body.sem;
 
-  const student = new Student({
-    name: name,
-    email: email,
-    password: password,
-    usn: usn,
-    branch: branch,
-    sem: sem
-  });
-
-  student.save()
-  .then(result => {
-    res.redirect('/admin/add-student');
+  Student.findOne({email: email})
+  .then(user => {
+    if(user) {
+      req.flash('error','Email already present');
+      return res.redirect('/admin/add-student');
+    } else {
+      if(password === cpassword) {
+        bcryptjs.hash(password,12)
+        .then(hashedPassword => {
+          const student = new Student({
+            name: name,
+            email: email,
+            password: hashedPassword,
+            usn: usn,
+            branch: branch,
+            sem: sem
+          });
+          return student.save()
+        })
+        .then(result => {
+          req.flash('success','Student record successfully');
+          res.redirect('/admin/add-student');
+        })
+      } else {
+        // console.log('Password and confirm password didnt match');
+        req.flash('error','Password and confirm password didnt match');
+        return res.redirect('/admin/add-student')
+      }
+    }
   })
   .catch(err => console.log(err));
 };
@@ -212,21 +281,120 @@ exports.getGeneratePlans = (req, res, next) => {
   });
 };
 
-exports.getIndex = (req, res, next) => {
-  return res.render('admin/index', {
-    pageTitle: 'Admin Dashboard'
-  });
+exports.getHome = (req, res, next) => {
+  let successMessage = req.flash('success');
+  if(successMessage.length > 0) {
+    // console.log(errorMessage);
+  } else {
+    successMessage = null;
+  }
+
+  let data = {};
+
+  Student.find()
+  .then(students => {
+    data.totalStudents = students.length;
+    return data;
+  })
+  .then(data => {
+    return Faculty.find()
+    .then(faculties => {
+      data.totalFaculties = faculties.length;
+      return data;
+    });
+  })
+  .then(data => {
+    return Exam.find()
+    .then(exams => {
+      data.totalExams = exams.length;
+      return data;
+    });
+  })
+  .then(data => {
+    return UniversityExam.find()
+    .then(uexams => {
+      data.totalUniversityExams = uexams.length;
+      return data;
+    });
+  })
+  .then(data => {
+    // console.log(data);
+    return res.render('admin/home', {
+      pageTitle: 'Admin Dashboard',
+      successMessage: successMessage,
+      data: data
+    });
+  })
 };
 
 exports.getProfile = (req, res, next) => {
+  let successMessage = req.flash('update');
+  if(successMessage.length > 0) {
+    successMessage = successMessage[0];
+  } else {
+    successMessage = null;
+  }
+
+  let errorMessage = req.flash('updateErr');
+  if(errorMessage.length > 0) {
+    errorMessage = errorMessage[0];
+  } else {
+    errorMessage = null;
+  }
+
   AddAdmin.find()
   .then(admins => {
     res.render('admin/profile', {
       pageTitle: 'Profile |Admin Dashboard',
-      admins: admins
+      admins: admins,
+      user: req.session.user,
+      successMessage: successMessage,
+      errorMessage: errorMessage
     });
   });
 };
+
+exports.postUpdatePassword = (req, res, next) => {
+  const user_id = req.body._id;
+  const password = req.body.password;
+  const cpassword = req.body.cpassword;
+  // console.log(email, password, cpassword);
+
+  AddAdmin.findById(user_id)
+  .then(user => {
+    if(user) {
+      if(password === cpassword) {
+        bcryptjs.hash(password, 12) 
+        .then(hashedPassword => {
+          user.password = hashedPassword;
+          return user.save();
+        })
+        .then(user => {
+          req.session.user = user;
+          req.flash('update', 'Your password has been updated');
+          req.session.save(err => {
+            if(err) {
+              console.log(err);
+            }
+            return res.redirect('/admin/profile');
+          })
+        })
+      } else {
+        // console.log('New password and confirm password didnt match');
+        req.flash('updateErr', 'New password and confirm password didnt match');
+        return res.redirect('/admin/profile');
+      } 
+    } else {
+      // console.log('Invalid User');
+      req.flash('updateErr', 'Invalid User');
+      return res.redirect('/admin/profile');
+    }
+    
+  })
+  .catch(err => {
+    console.log(err);
+  });
+}; 
 
 exports.getDeleteAdmin = (req, res, next) => {
   const admin_id = req.params.admin_id;
@@ -242,16 +410,31 @@ exports.postProfile = (req, res, next) => {
   const name = req.body.name;
   const email = req.body.email;
   const password = req.body.password;
+  const cpassword = req.body.cpassword;
 
-  const addAdmin = new AddAdmin({
-    name: name,
-    email: email,
-    password: password
-  });
-
-  addAdmin.save()
-  .then(result => {
-    res.redirect('/admin/profile');
+  AddAdmin.findOne({email: email})
+  .then(user => {
+    if(user) {
+      console.log('Email already prsent');
+    } else {
+      if(password === cpassword) {
+        bcryptjs.hash(password, 12)
+        .then(hashedPassword => {
+          const addAdmin = new AddAdmin({
+            name: name,
+            email: email,
+            password: hashedPassword
+          });
+          return addAdmin.save();
+        })
+        .then(result => {
+          console.log('Admin added');
+          return res.redirect('/admin/profile');
+        })
+      } else {
+        console.log('Password and confirm didnt match');
+      }
+    }
   })
   .catch(err => console.log(err));
 };
@@ -453,3 +636,12 @@ exports.getDeleteStudent = (req, res, next) => {
   })
   .catch(err => console.log(err));
 }
+
+exports.getLogout = (req, res, next) => {
+  req.session.destroy(err => {
+    if(err) {
+      console.log(err);
+    }
+    return res.redirect('/');
+  });
+};

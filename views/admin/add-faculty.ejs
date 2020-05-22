@@ -17,14 +17,30 @@
       </div>
       <div class="col-md-8">
         <div class="border" style="padding:10px;">
-          <p>Add Faculty</p>
+          <h2>Add Faculty</h2>
+          <% if(errorMessage) { %>
+            <div>
+              <br>
+              <p class="text-center" style="color: red;"><%= errorMessage %></p>
+              <br>
+            </div>
+          <% } %>
+          <% if(successMessage) { %>
+            <div>
+              <br>
+              <p class="text-center" style="color: green;"><%= successMessage %></p>
+              <br>
+            </div>
+          <% } %>
           <form method="POST" action="/admin/add-faculty">
             <label>Name:</label>
-            <input type="text" name="name" placeholder="Please Enter faculty Name" class="form-control">
+            <input type="text" required name="name" placeholder="Please Enter faculty Name" class="form-control">
             <label>Email:</label>
-            <input type="email" name="email" class="form-control" placeholder="Enter Email">
+            <input type="email" required name="email" class="form-control" placeholder="Enter Email">
             <label>Password:</label>
-            <input type="password" name="password" class="form-control" placeholder="Enter Password">
+            <input type="password" required name="password" class="form-control" placeholder="Enter Password">
+            <label>Confirm Password:</label>
+            <input type="password" required name="cpassword" class="form-control" placeholder="Confirm Password">
             <br>
             <input type="submit" name="submit" value="Add Now" class="btn btn-primary">
           </form>

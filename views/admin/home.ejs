@@ -11,34 +11,39 @@
 	</nav>
 </section>
 
+<% if(successMessage) { %>
+	<br>
+	<h4 class="text-center" style="color: green;"><%= successMessage %></h4>
+	<br>
+<% } %>
 <section class="container">
 	<div class="row text-white text-center">
 		<div class="col-md-3 col-6 bg-warning p-4">
 			<h5>Registered Students</h5>
 			<div class="row">
 				<div class="col-md-6 text-right"><h3><span class="fa fa-graduation-cap"></span></h3></div>
-				<div class="col-md-6 text-left"><h4>100</h4></div>
+				<div class="col-md-6 text-left"><h4><%= data.totalStudents %></h4></div>
 			</div>
 		</div>
 		<div class="col-md-3 col-6 bg-primary p-4">
 			<h5>Registered Faculties</h5>
 			<div class="row">
 				<div class="col-md-6 text-right"><h3><span class="fa fa-book"></span></h3></div>
-				<div class="col-md-6 text-left"><h4>100</h4></div>
+				<div class="col-md-6 text-left"><h4><%= data.totalStudents %></h4></div>
 			</div>
 		</div>
 		<div class="col-md-3 col-6 bg-danger p-4">
-			<h5>Total Notice</h5>
+			<h5>Total University Exams</h5>
 			<div class="row">
 				<div class="col-md-6 text-right"><h4><span class="fa fa-tv"></span></h4></div>
-				<div class="col-md-6 text-left"><h4>100</h4></div>
+				<div class="col-md-6 text-left"><h4><%= data.totalUniversityExams %></h4></div>
 			</div>
 		</div>
 		<div class="col-md-3 col-6 bg-info p-4">
 			<h5>Total Exams</h5>
 			<div class="row">
 				<div class="col-md-6 text-right "><h4> <span class="fa fa-pencil-square-o"></span></h4></div>
-				<div class="col-md-6 text-left "><h4>100</h4></div>
+				<div class="col-md-6 text-left "><h4><%= data.totalExams %></h4></div>
 			</div>
 		</div>
 	</div>

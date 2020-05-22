@@ -29,8 +29,9 @@ const ExamSchema = new Schema({
   },
   facultyRequire: {
     type: Number
-  }
-})
+  },
+  facultyApplied : [{}]
+});
 
 exports.Exam = mongoose.model('Exam', ExamSchema);
 

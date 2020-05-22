@@ -59,25 +59,26 @@
                               </div>
                               <div class="modal-body">   
                                   <label>Name:</label>
-                                  <input type="text" name="name" placeholder="Please Enter Name" value="<%= student.name %>" class="form-control">
+                                  <input required type="text" name="name" placeholder="Please Enter Name" value="<%= student.name %>" class="form-control">
                                   <label>Email:</label>
-                                  <input type="email" name="email" placeholder="Please Enter email" value="<%= student.email %>" class="form-control">
+                                  <input name="emailHidden" disabled placeholder="Please Enter email" value="<%= student.email %>" class="form-control">
+                                  <input name="email" hidden placeholder="Please Enter email" value="<%= student.email %>" class="form-control">
                                   <label>Sem:</label>
-                                  <select class="form-control" name="sem">
+                                  <select required class="form-control" name="sem">
                                     <option value="2">2</option>
                                     <option value="4">4</option>
                                     <option value="6">6</option>
                                     <option value="8">8</option>
                                   </select>
                                   <label>Branch:</label>
-                                  <select class="form-control" name="branch">
+                                  <select required class="form-control" name="branch">
                                     <option value="ISE">ISE</option>
                                     <option value="CSE">CSE</option>
                                     <option value="ECE">ECE</option>
                                     <option value="EEE">EEE</option>
                                   </select>
                                   <label>USN:</label>
-                                  <input class="form-control" type="text" value="<%= student.usn %>" name="usn" placeholder="Enter new USN">
+                                  <input required class="form-control" type="text" value="<%= student.usn %>" name="usn" placeholder="Enter new USN">
                               </div>
                               <div class="modal-footer">
                                 <input type="submit" name="submit" value="Update" class="btn btn-success">

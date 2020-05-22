@@ -1,3 +1,4 @@
+
 <%- include('./includes/index-nav.ejs') %>
 
 <body id="bg-user">
@@ -17,6 +18,15 @@
           <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1">Faculty Login 
             <i class="fa fa-lock" aria-hidden="true"></i>
           </button>
+          <br>
+          <% if(errorMessage) { %>
+            <div>
+              <br>
+              <p class="text-center" style="color: red;"><%= errorMessage %></p>
+              <br>
+            </div>
+          <% } %>
+          
 			  </div>
 
         <div class="col-md-4 col-sm-4 col-4">
@@ -38,7 +48,7 @@
             </div>
             <!-- Modal body -->
             <div class="modal-body">
-              <form method="POST" action="/admin/home">
+              <form method="POST" action="/admin-login">
                 <label>Username / Email:*</label>
                 <input type="text" name="email" placeholder="Please Enter Email or Username" class="form-control"><br>
                 <label>Password:*</label>

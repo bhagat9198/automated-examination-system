@@ -58,9 +58,10 @@
                               </div>
                               <div class="modal-body">
                                 <label>Name:</label>
-                                <input type="text" name="name" placeholder="Please Enter Name" value="<%= faculty.name %>" class="form-control">
+                                <input required type="text" name="name" placeholder="Please Enter Name" value="<%= faculty.name %>" class="form-control">
                                 <label>Email:</label>
-                                <input type="email" name="email" placeholder="Please Enter Email" class="form-control" value="<%= faculty.email %>">                          
+                                <input name="emailHidden" disabled placeholder="Please Enter Email" class="form-control" value="<%= faculty.email %>">                          
+                                <input name="email" hidden placeholder="Please Enter Email" class="form-control" value="<%= faculty.email %>"> 
                                 <div class="modal-footer">
                                   <input type="hidden" name="faculty_id" value="<%= faculty._id %>">
                                   <input type="submit" name="submit" value="Update" class="btn btn-info">

@@ -19,10 +19,10 @@
           <p>Add University Schedule</p>
           <form method="POST" action="/admin/university-exam" enctype="multipart/form-data">
             <label>Title:</label>
-            <input type="text" name="examTitle" placeholder="Please Enter Title" class="form-control">
+            <input required type="text" name="examTitle" placeholder="Please Enter Title" class="form-control">
             <br>
             <label>Upload File:</label>
-            <input type="file" name="universityExamFile" class="form-control">
+            <input required type="file" name="universityExamFile" class="form-control">
             <br>
             <input type="submit" name="submit" value="Add Now" class="btn btn-primary">
           </form>

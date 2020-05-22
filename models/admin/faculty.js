@@ -14,6 +14,9 @@ const FacultySchema = new Schema({
   password: {
     type: String,
     required: true
+  },
+  examApply: {
+    type: Object
   }
 })
 
